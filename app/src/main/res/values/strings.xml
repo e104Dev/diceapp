@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dicer</string>
+    <string name="button_jogar">Rolar</string>
+    <string name="image_view_description">Um imagem grafica que representa um dado com 6 pontos em sua face.</string>
+</resources>
