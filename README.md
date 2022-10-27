@@ -109,6 +109,8 @@ Nesta parte iremos incluir o segundo dado e fazer com que os 2 dados rolem após
         android:id="@+id/buttonRoll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/white"
                 android:onClick="roll"
