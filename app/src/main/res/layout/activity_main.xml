@@ -9,24 +9,46 @@
 
     <ImageView
         android:id="@+id/imageViewDiceOne"
-        android:layout_width="175dp"
-        android:layout_height="200dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/image_view_description"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewDiceTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dice6" />
 
-    <Button
-        android:id="@+id/buttonRoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="roll"
-        android:text="@string/button_jogar"
+    <ImageView
+        android:id="@+id/imageViewDiceTwo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRoll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewDiceOne" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDiceOne"
+        app:srcCompat="@drawable/dice1" />
+
+    <Button
+        android:id="@+id/buttonRoll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:onClick="roll"
+        android:text="@string/button_jogar"
+        android:textColor="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDiceTwo"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDiceTwo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
