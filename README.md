@@ -146,7 +146,7 @@ public void roll(View v) {
     }
 ```
 
-3. Teste o aplicativo em seu samrtphone e comente na thread da aula de hoj!
+3. Teste o aplicativo em seu samrtphone e comente na thread da aula de hoje!
 
 # Have Fun
 
