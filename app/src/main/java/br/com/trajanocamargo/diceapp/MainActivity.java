@@ -23,19 +23,24 @@ public class MainActivity extends AppCompatActivity {
      * @param v View - Referencia da interface grafica
      */
     public void roll(View v) {
-        //TODO: Gerar numero aleatorio entre 1 e 6.
+        //TODO: Gerar numeros aleatorios entre 1 e 6 para os 2 dados
 
         Random ramdom = new Random();
-        int numero = new Random().nextInt(6) + 1;
+        int numero1 = new Random().nextInt(6) + 1;
+        int numero2 = new Random().nextInt(6) + 1;
 
-        String mensagem = String.format("O número sorteado foi %d", numero);
 
-        //TODO: Alterar a imagem do dado com base no numero sorteado.
-        String idRecurso = String.format("dice%s", numero);
+        //TODO: Alterar a imagem do dado com base no numero sorteado para os 2 dados
+        String idRecursoDiceOne = String.format("dice%s", numero1);
+        String idRecursoDiceTwo = String.format("dice%s", numero2);
 
-        int drawable = getResources().getIdentifier(idRecurso, "drawable", getPackageName());
+        int drawableDiceOne = getResources().getIdentifier(idRecursoDiceOne, "drawable", getPackageName());
+        int drawableDiceTwo = getResources().getIdentifier(idRecursoDiceTwo, "drawable", getPackageName());
 
-        ImageView imageView =  findViewById(R.id.imageViewDiceOne);
-        imageView.setImageResource(drawable);
+        ImageView imageViewDiceOne =  findViewById(R.id.imageViewDiceOne);
+        imageViewDiceOne.setImageResource(drawableDiceOne);
+
+        ImageView imageViewDiceTwo =  findViewById(R.id.imageViewDiceTwo);
+        imageViewDiceTwo.setImageResource(drawableDiceTwo);
     }
 }

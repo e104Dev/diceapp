@@ -67,5 +67,85 @@ Siga a risca os passo aabaixo para criarmos um App juntos
   2. Teste o App em seu smartphone ou emulador...
 
 ### Parte III - Mais Layout, Mais Interação
-  
-  > Comming Soon...
+
+Nesta parte iremos incluir o segundo dado e fazer com que os 2 dados rolem após pressionar o botáo rolar.
+
+> Após alterar o layout, verifique as maracções visuais das contraints.
+
+1. No arquivo `main_activity_xml`, atualize-o com o trecho abaixo, neste código adicionamos um novo dado (ImageView) e ajustamos suas contraints para que elas ocupem o tamanho máximos permitido na tela. Esta cnfiguração não esta no video gravado em sala, mas utilizamos as propriedades `match_constraint` para o o comprimento e altura.
+```java
+<ImageView
+        android:id="@+id/imageViewDiceOne"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/image_view_description"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewDiceTwo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/dice6" />
+
+<ImageView
+        android:id="@+id/imageViewDiceTwo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                app:layout_constraintBottom_toTopOf="@+id/buttonRoll"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewDiceOne"
+                app:srcCompat="@drawable/dice1" />
+
+<Button
+        android:id="@+id/buttonRoll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
+                android:onClick="roll"
+                android:text="@string/button_jogar"
+                android:textColor="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewDiceTwo"
+                app:layout_constraintStart_toStartOf="@+id/imageViewDiceTwo" />
+```
+2. No arquivo `MainActivity.java`, inclua o trecho abaixo para atualizar  código e criar a interação com o segundo dado.
+
+```java
+public void roll(View v) {
+        //TODO: Gerar numeros aleatorios entre 1 e 6 para os 2 dados
+
+        Random ramdom = new Random();
+        int numero1 = new Random().nextInt(6) + 1;
+        int numero2 = new Random().nextInt(6) + 1;
+
+
+        //TODO: Alterar a imagem do dado com base no numero sorteado para os 2 dados
+        String idRecursoDiceOne = String.format("dice%s", numero1);
+        String idRecursoDiceTwo = String.format("dice%s", numero2);
+
+        int drawableDiceOne = getResources().getIdentifier(idRecursoDiceOne, "drawable", getPackageName());
+        int drawableDiceTwo = getResources().getIdentifier(idRecursoDiceTwo, "drawable", getPackageName());
+
+        ImageView imageViewDiceOne =  findViewById(R.id.imageViewDiceOne);
+        imageViewDiceOne.setImageResource(drawableDiceOne);
+
+        ImageView imageViewDiceTwo =  findViewById(R.id.imageViewDiceTwo);
+        imageViewDiceTwo.setImageResource(drawableDiceTwo);
+    }
+```
+
+3. Teste o aplicativo em seu samrtphone e comente na thread da aula de hoj!
+
+# Have Fun
+
+
